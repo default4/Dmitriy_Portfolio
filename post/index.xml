@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Dmitriy Batov</title>
+    <link>https://dataprofessor.github.io/Dmitriy_Portfolio/post/</link>
+    <description>Recent content in Projects on Dmitriy Batov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><atom:link href="https://dataprofessor.github.io/Dmitriy_Portfolio/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A/B Testing with Cookie Cats</title>
+      <link>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-1/</link>
+      <pubDate>Sat, 09 May 2020 10:58:08 -0400</pubDate>
+      
+      <guid>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-1/</guid>
+      <description>The dataset contains the following columns:
+userid: A unique number that identifies each player. version: Whether the player was assigned to the control group (gate_30) or the group with the moved gate (gate_40). sum_gamerounds: The number of game rounds played by the player during the first 14 days after install. retention_1: Did the player come back and play 1 day after installing? retention_7: Did the player come back and play 7 days after installing?</description>
+    </item>
+    
+    <item>
+      <title>Automatic Character Identification from South Park TV Show Lines</title>
+      <link>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-7/</link>
+      <pubDate>Mon, 10 Apr 2017 11:00:59 -0400</pubDate>
+      
+      <guid>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-7/</guid>
+      <description>Overview The &amp;ldquo;Automatic Character Identification from TV Show Lines&amp;rdquo; project aims to leverage Natural Language Processing (NLP) techniques to predict which character from a TV show might have spoken a given line. This intricate task of text classification involves numerous steps, from data preprocessing to model optimization.
+Goals Text Classification: Develop a model capable of classifying lines from a TV show to their corresponding characters, thereby enabling automatic character identification based on dialogues.</description>
+    </item>
+    
+    <item>
+      <title>Chess Games Exploratory Data Analysis (EDA)</title>
+      <link>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-4/</link>
+      <pubDate>Mon, 10 Apr 2017 11:00:59 -0400</pubDate>
+      
+      <guid>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-4/</guid>
+      <description>Goals Understand the distribution of player ratings. Investigate how games typically end (e.g., checkmate, time forfeit). Explore the relationship between player ratings and game outcomes. Identify popular openings and strategies. Dataset The dataset contains following columns:
+PGN: Portable Game Notation, which represents the moves made in the chess game. Mode: The type of game, e.g., Classical, Blitz, Bullet, etc. Result: Outcome of the game, e.g., &amp;ldquo;Black Wins&amp;rdquo;, &amp;ldquo;White Wins&amp;rdquo;. Average Rating: The average rating of the players in the game.</description>
+    </item>
+    
+    <item>
+      <title>Credit Card Fraud Detection</title>
+      <link>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-3/</link>
+      <pubDate>Mon, 10 Apr 2017 11:00:59 -0400</pubDate>
+      
+      <guid>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-3/</guid>
+      <description>This project aims to build a model to detect credit card fraud using a dataset of credit card transactions. Each transaction is labeled as either fraudulent or non-fraudulent.
+Dataset The dataset contains 284,807 transactions, each represented by 31 columns:
+Time: Seconds elapsed between this transaction and the first transaction in the dataset. V1 to V28: PCA transformed features. Amount: The transaction amount. Class: Target variable (1 represents a fraudulent transaction, and 0 represents a non-fraudulent transaction).</description>
+    </item>
+    
+    <item>
+      <title>Death Metal Album Recommendation System</title>
+      <link>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-2/</link>
+      <pubDate>Mon, 10 Apr 2017 11:00:59 -0400</pubDate>
+      
+      <guid>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-2/</guid>
+      <description>This project aims to build a content-based recommendation system for death metal albums. The recommendation system suggests similar albums based on various features such as the band&amp;rsquo;s country of origin, status, genre, theme, the year the album was released, and the average review score.
+Datasets The project utilizes three datasets from:
+albums.csv
+Contains information about death metal albums, including the album ID, band ID, title, and release year. bands.csv
+Provides details about death metal bands, including the band ID, name, country of origin, status, year formed, genre, theme, and active years.</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing with Insurance Data</title>
+      <link>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-6/</link>
+      <pubDate>Mon, 10 Apr 2017 11:00:59 -0400</pubDate>
+      
+      <guid>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-6/</guid>
+      <description>Goals Understand if there&amp;rsquo;s a significant difference in insurance charges based on: Smoking status, Gender, Region. Explore the association between: Gender and smoking status, Region and smoking status. Datasets The dataset contains following columns:
+age: Age of the primary beneficiary. Ranges from 18 to 64 with an average age of approximately 39. sex: Gender of the primary beneficiary. There are slightly more males (676) than females (662) in the dataset. bmi: Body Mass Index (BMI) of the primary beneficiary.</description>
+    </item>
+    
+    <item>
+      <title>PC Components Analysis Project</title>
+      <link>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-5/</link>
+      <pubDate>Mon, 10 Apr 2017 11:00:59 -0400</pubDate>
+      
+      <guid>https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-5/</guid>
+      <description>Goals Insightful Visualization: Understand and visualize the distribution of various component features, trends over time, and identify correlations between different attributes. Price Predictions: Create machine learning models to forecast the future prices of PC components, enabling users to make informed decisions in a rapidly changing tech landscape. Datasets The dataset contains following columns:
+CPU: Contains details about various CPU models, their speeds, and respective prices. GPU: Lists different GPU models, their VRAM capacities, and prices.</description>
+    </item>
+    
+  </channel>
+</rss>

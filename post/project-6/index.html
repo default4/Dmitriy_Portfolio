@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Hypothesis Testing with Insurance Data | Dmitriy Batov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.118.2">
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://dataprofessor.github.io/Dmitriy_Portfolio/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Hypothesis Testing with Insurance Data" />
+<meta property="og:description" content="A statistical analysis project that aims to understand the relationships between various factors and insurance charges using hypothesis testing.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-6/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-04-10T11:00:59-04:00" />
+<meta property="article:modified_time" content="2017-04-10T11:00:59-04:00" />
+<meta itemprop="name" content="Hypothesis Testing with Insurance Data">
+<meta itemprop="description" content="A statistical analysis project that aims to understand the relationships between various factors and insurance charges using hypothesis testing.
+"><meta itemprop="datePublished" content="2017-04-10T11:00:59-04:00" />
+<meta itemprop="dateModified" content="2017-04-10T11:00:59-04:00" />
+<meta itemprop="wordCount" content="1104">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hypothesis Testing with Insurance Data"/>
+<meta name="twitter:description" content="A statistical analysis project that aims to understand the relationships between various factors and insurance charges using hypothesis testing.
+"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://dataprofessor.github.io/Dmitriy_Portfolio/images/Insurance1.jpg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://dataprofessor.github.io/Dmitriy_Portfolio/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Dmitriy Batov
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://dataprofessor.github.io/Dmitriy_Portfolio/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://dataprofessor.github.io/Dmitriy_Portfolio/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://dataprofessor.github.io/Dmitriy_Portfolio/post/" title="Projects page">
+              Projects
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+<a href="https://www.linkedin.com/in/dmitriy-batov-038521170/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/default4" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Hypothesis Testing with Insurance Data</h1>
+          
+            <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+              A statistical analysis project that aims to understand the relationships between various factors and insurance charges using hypothesis testing.
+
+            </h2>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        PROJECTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-6/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-6/&amp;text=Hypothesis%20Testing%20with%20Insurance%20Data" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://dataprofessor.github.io/Dmitriy_Portfolio/post/project-6/&amp;title=Hypothesis%20Testing%20with%20Insurance%20Data" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Hypothesis Testing with Insurance Data</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2017-04-10T11:00:59-04:00">April 10, 2017</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="goals">Goals</h2>
+<ol>
+<li>Understand if there&rsquo;s a significant difference in insurance charges based on: Smoking status, Gender, Region.</li>
+<li>Explore the association between: Gender and smoking status, Region and smoking status.</li>
+</ol>
+<h2 id="datasets">Datasets</h2>
+<p>The dataset contains following columns:</p>
+<ol>
+<li><strong>age</strong>: Age of the primary beneficiary. Ranges from 18 to 64 with an average age of approximately 39.</li>
+<li><strong>sex</strong>: Gender of the primary beneficiary. There are slightly more males (676) than females (662) in the dataset.</li>
+<li><strong>bmi</strong>: Body Mass Index (BMI) of the primary beneficiary. Ranges from 15.96 to 53.13 with an average BMI of approximately 30.66.</li>
+<li><strong>children</strong>: Number of children covered by the insurance. Most individuals have 0 to 2 children, with a maximum of 5 children.</li>
+<li><strong>smoker</strong>: Whether the primary beneficiary is a smoker or not. A majority (1064) are non-smokers, while 274 are smokers.</li>
+<li><strong>region</strong>: Region where the primary beneficiary lives. The &lsquo;southeast&rsquo; region has the most entries (364), but the distribution seems relatively balanced across regions.</li>
+<li><strong>charges</strong>: Insurance charges or costs. The insurance charges range from 1121.87 to 63770.43, with an average charge of approximately 13270.42.</li>
+</ol>
+<p>Following types of tests will be considered:</p>
+<ol>
+<li><strong>Two Sample Tests</strong>: Compare insurance charges between smokers and non-smokers. Compare insurance charges between males and females.</li>
+<li><strong>Multiple Sample Tests (ANOVA)</strong>: Compare insurance charges across different regions.</li>
+<li><strong>Non-Numeric Tests (Chi-Squared Test)</strong>: Test the association between gender and smoking status. Test the association between region and smoking status.</li>
+</ol>
+<h2 id="two-sample-tests">Two Sample Tests</h2>
+<h4 id="compare-insurance-charges-between-smokers-and-non-smokers">Compare insurance charges between smokers and non-smokers</h4>
+<figure><img src="https://dataprofessor.github.io/Dmitriy_Portfolio/images/distinsurancesmokingstatus.png"/>
+</figure>
+
+<p>Box Plot:</p>
+<ol>
+<li>Smokers tend to have higher insurance charges than non-smokers. The median charge for smokers is substantially higher than for non-smokers.</li>
+<li>The interquartile range (IQR) for smokers is also larger, indicating more variability in charges for smokers.</li>
+</ol>
+<figure><img src="https://dataprofessor.github.io/Dmitriy_Portfolio/images/distinsurancesmokingstatus2.png"/>
+</figure>
+
+<p>Histogram:</p>
+<ol>
+<li>The distribution of charges for non-smokers is skewed to the right, with most non-smokers having charges below $10,000.</li>
+<li>Smokers have a broader distribution, with a significant number of them having charges over $30,000.</li>
+</ol>
+<p>It will be conducted a t-test to see if there&rsquo;s a statistically significant difference in insurance charges between males and females.</p>
+<p>Results for Charges between Smokers and Non-Smokers:</p>
+<ol>
+<li><strong>T-statistic</strong>: 46.66</li>
+<li><strong>P-value</strong>: 8.27×10^−283</li>
+</ol>
+<p>Given the extremely low p-value, we can reject the null hypothesis and conclude that there is a statistically significant difference in insurance charges between smokers and non-smokers.</p>
+<h4 id="compare-insurance-charges-between-males-and-females">Compare insurance charges between males and females:</h4>
+<figure><img src="https://dataprofessor.github.io/Dmitriy_Portfolio/images/distinsurancegender.png"/>
+</figure>
+
+<p>Box Plot:</p>
+<ol>
+<li>The distribution of charges for both males and females is right-skewed.</li>
+<li>The median charge for males appears slightly higher than for females, but the difference is not as pronounced as it was between smokers and non-smokers.</li>
+</ol>
+<figure><img src="https://dataprofessor.github.io/Dmitriy_Portfolio/images/distinsurancegender2.png"/>
+</figure>
+
+<p>Histogram:</p>
+<ol>
+<li>Both males and females show a right-skewed distribution for insurance charges.</li>
+<li>The distributions are relatively similar, with both genders having most of their charges below $10,000.</li>
+</ol>
+<p>Next, will be conducted a t-test to see if there&rsquo;s a statistically significant difference in insurance charges between males and females.</p>
+<p>Results for Charges between Males and Females:</p>
+<ol>
+<li><strong>T-statistic</strong>: 2.10</li>
+<li><strong>P-value</strong>: 0.0361</li>
+</ol>
+<p>The p-value is less than 0.05, which indicates that there&rsquo;s a statistically significant difference in insurance charges between males and females, though the difference is not as pronounced as it was between smokers and non-smokers.</p>
+<h2 id="multiple-sample-tests-anova">Multiple Sample Tests (ANOVA)</h2>
+<h4 id="compare-insurance-charges-across-different-regions">Compare insurance charges across different regions</h4>
+<figure><img src="https://dataprofessor.github.io/Dmitriy_Portfolio/images/distinsuranceregion.png"/>
+</figure>
+
+<p>Box Plot:</p>
+<ol>
+<li>The median charges appear highest for the Southeast region and lowest for the Southwest region.</li>
+<li>The Southeast region also has a wider interquartile range, suggesting more variability in charges.</li>
+<li>All regions have several outliers on the higher end of charges.</li>
+</ol>
+<figure><img src="https://dataprofessor.github.io/Dmitriy_Portfolio/images/distinsuranceregion2.png"/>
+</figure>
+
+<p>Histogram:</p>
+<ol>
+<li>All regions show a right-skewed distribution for insurance charges.</li>
+<li>The Southeast region has a notable peak in the higher charge range, which aligns with its higher median in the box plot.</li>
+</ol>
+<p>It will be used one-way ANOVA to test if there&rsquo;s a statistically significant difference in insurance charges across the different regions.</p>
+<p>Results for Charges across Different Regions:</p>
+<ol>
+<li><strong>F-statistic</strong>: 2.97</li>
+<li><strong>P-value</strong>: 0.0309</li>
+</ol>
+<p>Given the p-value is less than 0.05, we can reject the null hypothesis and conclude that there is a statistically significant difference in insurance charges across the different regions.</p>
+<h2 id="non-numeric-tests-chi-squared-test">Non-Numeric Tests (Chi-Squared Test)</h2>
+<h4 id="test-the-association-between-gender-and-smoking-status">Test the association between gender and smoking status</h4>
+<figure><img src="https://dataprofessor.github.io/Dmitriy_Portfolio/images/distsmokingbygender.png"/>
+</figure>
+
+<p>Bar Plot:</p>
+<ol>
+<li>Among females, a majority are non-smokers with a smaller proportion being smokers.</li>
+<li>Similarly, among males, a majority are non-smokers, but the proportion of male smokers is slightly higher than that of female smokers.</li>
+</ol>
+<p>Contingency Table:</p>
+<ol>
+<li>Out of 662 females, 547 are non-smokers and 115 are smokers.</li>
+<li>Out of 676 males, 517 are non-smokers and 159 are smokers.</li>
+</ol>
+<p>It will be used the Chi-squared test to see if there&rsquo;s an association between an individual&rsquo;s gender and their smoking status.</p>
+<p>Results for Association between Gender and Smoking Status:</p>
+<ol>
+<li><strong>Chi-squared statistic</strong>: 7.39</li>
+<li><strong>P-value</strong>: 0.0065</li>
+</ol>
+<p>Given the p-value is less than 0.05, we can reject the null hypothesis and conclude that there is a statistically significant association between an individual&rsquo;s gender and their smoking status.</p>
+<h4 id="test-the-association-between-region-and-smoking-status">Test the association between region and smoking status</h4>
+<figure><img src="https://dataprofessor.github.io/Dmitriy_Portfolio/images/distsmokingbygender2.png"/>
+</figure>
+
+<p>Bar Plot:</p>
+<ol>
+<li>In all regions, the number of non-smokers is higher than smokers.</li>
+<li>The Southeast region has a relatively higher proportion of smokers compared to the other regions.</li>
+</ol>
+<p>Contingency Table:</p>
+<ol>
+<li>In the Northeast region, out of 324 individuals, 257 are non-smokers and 67 are smokers.</li>
+<li>In the Northwest region, out of 325 individuals, 267 are non-smokers and 58 are smokers.</li>
+<li>In the Southeast region, out of 364 individuals, 273 are non-smokers and 91 are smokers.</li>
+<li>In the Southwest region, out of 325 individuals, 267 are non-smokers and 58 are smokers.</li>
+</ol>
+<p>From the Chi-Squared Test results, the p-value was 0.0617. This is slightly above the common significance level of 0.05, indicating that we do not have enough evidence to suggest a statistically significant association between region and smoking status, based on our dataset.</p>
+<h2 id="result">Result</h2>
+<p>In this project, it was delved into an insurance dataset to explore relationships between various factors and insurance charges using statistical hypothesis testing. The dataset featured information about policyholders&rsquo; age, gender, BMI, number of children, smoker status, region, and their respective insurance charges.</p>
+<p>Primary objectives were to determine:</p>
+<ol>
+<li>The impact of smoking status on insurance charges.</li>
+<li>The difference in insurance charges based on gender.</li>
+<li>Variations in insurance charges across different regions.</li>
+<li>The potential associations between gender and smoking status, and between region and smoking status.</li>
+</ol>
+<p>Key Findings:</p>
+<ol>
+<li><strong>Smokers vs. Non-Smokers</strong>: A pronounced difference in insurance charges was observed, with smokers having significantly higher charges.</li>
+<li><strong>Males vs. Females</strong>: A difference was identified, with males having slightly higher charges than females.</li>
+<li><strong>Regional Differences</strong>: There was a statistically significant variation in insurance charges across regions, with the Southeast region having the highest average charges.</li>
+<li><strong>Associations</strong>: A significant association was found between gender and smoking status, suggesting gender might influence smoking habits. However, no significant association was determined between region and smoking status.</li>
+</ol>
+<p><a href="https://github.com/default4/Data-Visualization/tree/main/Hypothesis%20Testing%20with%20Insurance%20Data">Link to GitHub Repository</a></p>
+<p><a href="https://www.kaggle.com/datasets/daminitiwari/insurance">Link to dataset</a></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dataprofessor.github.io/Dmitriy_Portfolio/" >
+    &copy;  Dmitriy Batov 2023 
+  </a>
+    <div>
+
+
+
+
+
+
+
+<a href="https://www.linkedin.com/in/dmitriy-batov-038521170/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/default4" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://dataprofessor.github.io/Dmitriy_Portfolio/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

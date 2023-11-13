@@ -18,6 +18,16 @@ Goals Text Classification: Develop a model capable of classifying lines from a T
     </item>
     
     <item>
+      <title>Kafka-ML Diabetes Classification Project</title>
+      <link>https://default4.github.io/Dmitriy_Portfolio/post/project-8/</link>
+      <pubDate>Thu, 20 Jul 2023 11:00:59 -0400</pubDate>
+      
+      <guid>https://default4.github.io/Dmitriy_Portfolio/post/project-8/</guid>
+      <description>Overview The Kafka-ML Diabetes Classification Project is a cutting-edge application that integrates Apache Kafka, FastAPI, and machine learning for real-time diabetes prediction. This project showcases the power of combining data streaming technologies with predictive analytics to derive meaningful insights from health data.
+Goals The Kafka-ML Diabetes Classification Project aims to demonstrate the innovative application of big data technologies and machine learning in healthcare analytics. The primary goals of the project are:</description>
+    </item>
+    
+    <item>
       <title>Hypothesis Testing with Insurance Data</title>
       <link>https://default4.github.io/Dmitriy_Portfolio/post/project-6/</link>
       <pubDate>Mon, 10 Jul 2023 11:00:59 -0400</pubDate>
